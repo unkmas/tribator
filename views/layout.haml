@@ -1,0 +1,18 @@
+!!!5
+%html
+  %head
+    %title Анальный дефлоратор
+    %link{rel: "stylesheet", type: "text/css", href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", crossorigin: 'anonymous'}
+    %link{rel: "stylesheet", type: "text/css", href: "/main.css", crossorigin: 'anonymous'}
+  %body
+    %header.navbar.navbar-inverse.navbar-fixed-top
+      .container
+        .navbar-header
+          %a.navbar-brand Tribator
+    .container
+      = yield
+
+    %script{src: 'https://code.jquery.com/jquery-3.1.0.min.js', crossorigin: 'anonymous'}
+    %script{src: 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'}
+    %script{src: '/main.js'}
+
