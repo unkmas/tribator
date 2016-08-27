@@ -1,4 +1,6 @@
+require 'sinatra'
 require 'sequel'
+
 connection_string = 'postgres://localhost/tribator'
 DB = Sequel.connect(ENV["DATABASE_URL"] || connection_string)
 

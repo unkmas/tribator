@@ -13,7 +13,7 @@ class Tribator < Sinatra::Base
   get '/tasks/get' do
     @task = Task.choose
 
-    @task.values.to_json
+    task.nil? ? {}.to_json : @task.values.to_json
   end
 
   post '/tasks/:task_id/answer' do
