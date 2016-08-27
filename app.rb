@@ -20,7 +20,7 @@ class Tribator < Sinatra::Base
     @task = Task[params[:task_id]]
     halt 404 if @task.nil?
 
-    @answer = Answer.create(answer: params[:answer])
+    @answer = Answer.create(answer: params[:answer].merge(ip: request.ip))
     @task.add_answer(@answer)
 
     [201, {}, {}]
