@@ -13,15 +13,14 @@ class Tribator < Sinatra::Base
   get '/tasks/get' do
     @task = Task.choose
 
-    task.nil? ? {}.to_json : @task.values.to_json
+    @task.nil? ? {}.to_json : @task.values.to_json
   end
 
   post '/tasks/:task_id/answer' do
     @task = Task[params[:task_id]]
     halt 404 if @task.nil?
 
-    @answer = Answer.create(answer: params[:answer].merge(ip: request.ip))
-    @task.add_answer(@answer)
+    @answer = Answer.create(answer: params[:answer], ip: request.ip, task_id: @task.id)
 
     [201, {}, {}]
   end
