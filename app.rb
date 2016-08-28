@@ -10,6 +10,12 @@ class Tribator < Sinatra::Base
     haml :work
   end
 
+  get '/finish' do
+    @answers_count = Answer.where(ip: request.ip).count
+
+    haml :finish
+  end
+
   get '/tasks/get' do
     @task = Task.choose
 
