@@ -11,7 +11,7 @@ class Task < Sequel::Model
   # Public: selects task for work
   #
   # Returns Task
-  def self.choose
-    self.where(status: PROCESSING).first
+  def self.choose(ip)
+    self.where(status: PROCESSING).where("id not in (select task_id from answers where answers.ip = ?)", ip).first
   end
 end

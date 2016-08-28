@@ -17,7 +17,7 @@ class Tribator < Sinatra::Base
   end
 
   get '/tasks/get' do
-    @task = Task.choose
+    @task = Task.choose(request.ip)
 
     @task.nil? ? {}.to_json : @task.values.to_json
   end
