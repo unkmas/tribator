@@ -5,8 +5,8 @@ class Answer < Sequel::Model
   #
   # Returns nothing
   def after_create
-    if DB.select(1).where(Answer.where(task_id: task.id).group_and_count(:answer).where { count > 1 }.exists)
-      task.update(status: Task::SOLVED)
-    end
+    #if DB.select(1).where(Answer.where(task_id: task.id).group_and_count(:answer).where { count > 1 }.exists)
+    #  task.update(status: Task::SOLVED)
+    #end
   end
 end
