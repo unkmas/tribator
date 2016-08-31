@@ -29,6 +29,10 @@ $(document).ready(function() {
 
     nextExample: function() {
       $.get('/tasks/get', function(data) {
+        if (!data.id) {
+          window.location.href = '/finish';
+          return;
+        }
         self.currentId = data.id;
         $('#hypernym').text(data.hypernym);
 
